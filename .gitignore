@@ -1,7 +1,13 @@
 *.pdf
+
 *.lof
+
 *.log
+
 *.out
+
 *.synctex
+
 *.toc
+
 *.aux

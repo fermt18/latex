@@ -1,6 +1,6 @@
 % Chapter 2
 
-\chapter{Test Specification} % Main chapter title
+\chapter{The Application} % Main chapter title
 
 \label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
@@ -16,17 +16,80 @@
 %----------------------------------------------------------------------------------------
 
 \section{Overview}
-The test specification explained in this chapter serve also as a driver for the application design and development. 
-TODO: BDD applied at app design and test. Why? Why would have to do otherwise?
-TODO: application class diagram
+TODO: any info about app design here is high level. Not in chapter 3 because the main high level goals are already pre-defined
+The application consists on 6 services simulating an e-commerce application.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/Presentation1}
+\decoRule
+\caption[Block Diagram]{Application block diagram}
+\label{fig:Block Diagram}
+\end{figure}
+
+\paragraph The user entry point is the Web Service, from where all the functionality of the application can be accessed. For the sake of simplicity there are no roles defined within the users of the application and thus any request coming from the Web Service is processed by the application.
+The Discovery Service is not focussed on functional requirements but it tracks all the available instances of each running service.
+
+\paragraph What follows is a short description of each one of the services:
+\begin{itemize}
+\item Web Service: User entry point. Application's functionality is accessed by the user through a UI provided by this service.
+\item Account Service: Service for managing user accounts. Accounts can be created and deleted.
+\item Product Servive: Service that manages the shop product catalog. Products can be created and deleted.
+\item Cart Service: Service that manages the products within the shopping carts.
+\item Order Service: Service that manages the carts within the shopping orders.
+\item Discovery Service: Service that manages the open instances of each one of the other services.
+\end{itemize}
+
+\paragraph Each one of the service implements and maintains its own relational database, without any link with other service's databases. Those services that need information from other services get it from the user through the Web Service. This means that the REST API exposed by all services consists at least on both "get" and "set" requests in order to be able to pull and push information from and to the system.
+ 
+\paragraph Application behavior is shaped with the Gherkin files written for testing the services trying to simulate a BDD approach. More details on this follow in the next chapter. 
 
 %----------------------------------------------------------------------------------------
 
-\section{Features}
-TODO: feature files and test levels
+\section{Data Model}
 
+The Accounts, Product, Cart and Order Services have each one its own data model:\\
+
+
+\textbf{Account Service}
+\begin{itemize}
+\item Number: int
+\item Owner: string
+\item Balance: float\\
+\end{itemize}
+
+
+\textbf{Product Service}
+\begin{itemize}
+\item Reference: string
+\item Price: float
+\item Description: string\\
+\end{itemize}
+
+
+\textbf{Cart Service}
+\begin{itemize}
+\item Name: string
+\item AssociatedAccount: Account
+\item AssociatedProducts: Product[]\\
+\end{itemize}
+
+
+\textbf{Order Service}
+\begin{itemize}
+\item Id: string
+\item AssociatedCart: Cart\\
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 
-\section{Test Framework}
-TODO: Cucumber, why?
+\section{Assumptions}
+
+All databases start with one test entry:
+
+\begin{itemize}
+\item Account: 000000001, "TestUser", 1000
+\item Product: ref001, "10", "Simple mouse"
+\item Cart: C001, 000000001, ref001
+\item Order: O001, C001
+\end{itemize}

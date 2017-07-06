@@ -1,6 +1,6 @@
-% Chapter 1
+% Chapter 2
 
-\chapter{The Application} % Main chapter title
+\chapter{Introduction And Objectives} % Main chapter title
 
 \label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
@@ -15,50 +15,49 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Overview}
-The application consists on 6 services simulating an e-commerce application.
+\section{Introduction}
+\paragraph This document describes and explains the Project resulting from the knowledge gathered during the Software Quality Assurance post degree course. This Project emphasizes some of the topics studied during the course that have special interest for the author and tries to consolidate and expand them.
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/Presentation1}
-\decoRule
-\caption[Block Diagram]{Application block diagram}
-\label{fig:Block Diagram}
-\end{figure}
+\paragraph The Project is about providing a solution for implementing and testing a micro-service based application. Proposed solution includes simulating a BDD approach and so at the same time designing a test specification that actually is going to drive the application development. Test automation of the resulting application is also under the scope of this project.
 
-\paragraph The user entry point is the Web Service, from where all the functionality of the application can be accessed. For the sake of simplicity there are no roles defined within the users of the application and thus any request coming from the Web Service is processed by the application.
-The Discovery Service is not focussed on functional requirements but it tracks all the available instances of each running service.
+\paragraph In the following section of this chapter, the motivations for the selection of the actual set of topics learned in the course are explained. In \ref{Chapter2} the services that forms the application under test are described from a high level point of view as well as the technologies and the data model used for each service. Is not until \ref{Chapter3} that the actual interconnections between services and the behavior of the whole application are described through its test specification written in Gherkin language. \ref{Chapter4} is focused on Test Automation of the different test levels as well as the test environment strategy used. In \ref{Chapter5} a retrospective is done on which ones of the initial objectives have been achieved by the end of the Project as well as a comparison between the original estimated Project planning and the actual delivery dates. Finally, in \ref{Chapter6} the Project conclusions and the problems faced are discussed. 
 
-\paragraph What follows is a short description of each one of the services:
+%----------------------------------------------------------------------------------------
+
+\section{Motivation}
+\paragraph In general lines, the developed solution described in this document makes use of a set of topics learned in the SQA post degree that can be easily identified:
+
 \begin{itemize}
-\item Web Service: User entry point. Application's functionality is accessed through a REST API 
-\item Account Service: Service for managing user accounts. Accounts can be created and deleted.
-\item Product Servive: Service that manages the shop product catalogue. Products can be created and deleted.
-\item Cart Service: Service that manages the products within the shopping carts.
-\item Order Service: Service that manages the carts within the shopping orders.
-\item Discovery Service: Service that manages the open instances of each one of the other services.
+\item \textbf{Test Case design:} test case files are written in Gherkin language.
+\item \textbf{BDD:} although is difficult to simulate a BDD process within a single person team, the idea behind is to use a domain-based language such as Gherkin for describing the application behavior.
+\item \textbf{Test Automation:} the Java implementation of the Cucumber framework is used in order to run all the Gherkin-based test cases with one single command.
+\item \textbf{Continuous Integration:} based on a Jenkins pipeline with the focus put on the environment management job that will switch between Integration and System test environments besides the build and test jobs.
 \end{itemize}
 
-\paragraph Each one of the service iplements and mantains its own relational database, without any link with other service's databases. Those services that need information from other services get it from the user through the Web Service. This means that the REST API exposed by all services consits at least on both "get" and "set" requests in order to be able to pull and push information from and to the system.
- 
-\paragraph Application behaviour is shaped with the Gherkin files written for testing the services trying to simulate a BDD apporoach. More details on this follow in the next chapter. 
-
-%----------------------------------------------------------------------------------------
-
-\section{Data Model}
-
-The Accounts, Product, Cart and Order Services have each one its own data model:
-TODO: Data model classes
-
-%----------------------------------------------------------------------------------------
-
-\section{Assumptions}
-
-All databases start with one test entry:
+At the same time, two more topics out of the course scope are included in the solution:
 
 \begin{itemize}
-\item Account: 000000001, "TestUser", 1000
-\item Product: ref001, "10", "Simple mouse"
-\item Cart: C001, 000000001, ref001
-\item Order: O001, C001
+\item \textbf{Micro Service based testing:} services within the application under test communicate with each other by exposing REST APIs and an HTML interface for user interaction. Thus the resulting test framework shall be able to send REST requests and allow user interface testing.
+\item \textbf{Test Environment management:} maybe the most challenging part of the Project due to the unknown of the topic by the author, the idea behind is to user Docker in order to deploy the services in either an Integration or a System test environment depending on the test to be run. Once the test is done, the environment shall be cleaned up.
+\end{itemize}
+
+\paragraph Additionally, this Project development includes the coding of the application under test. Knowing that software development is not a subject included in the course the author has tried to dedicate to this task the minimum effort for having just a target with some functionality to be tested and in no case the objective is to release productive software.
+
+\paragraph Motivation behind this set of topics is heavily driven by the professional projects where the author is involved in and that at the same time, those projects were partly the reason why the author took part of the course. 
+
+Is also noticeable that most of the topics selected are nowadays on the agenda of many companies concerned with current testing capabilities and that want to take a step forward in such a critical matter. From a professional perspective, taking the chance of using this Project as way of introduction and training for some new state-of-the-art testing technologies is also a motivation for the author and a reason for choosing the subject of the Project.
+
+%----------------------------------------------------------------------------------------
+
+\section{Project Objectives}
+\paragraph Objectives of the project are to describe a full solution for providing automated test capabilities of a fully specified application using the knowledge gathered during the SQA post degree course. This solution shall be coherent with all the technologies and techniques used and thus could be actually used for a real testing project. In order to assure this last point, the solution described is at the same time implemented in a real coding project in what could be considered as a PoC.
+
+So the objectives, in order of importance, are the following:
+\begin{itemize}
+\item Provide a full description of the solution proposed, from the test specification to the test reporting, in the form of the present document.
+\item Provide a test specification that covers and describes the functionality of the application under test at integration and system test levels in the form of feature files written in Gherkin language.
+\item Provide a test framework using Cucumber libraries able to test each one of the micro services conforming the application in the form of a software package.
+\item Provide the application under test in the form of a software package.
+\item Provide a test environment management solution based on Docker in the form of a software package.
+\item Provide a test automation chain in the form of a Jenkins pipeline.
 \end{itemize}

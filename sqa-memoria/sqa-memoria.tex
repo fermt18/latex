@@ -24,7 +24,7 @@
 
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
-%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 english, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
@@ -177,7 +177,7 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-This project covers the test specification and automated test execution of a micro service based application that simulates an e-commerce shop. Even though software development is not part of the focus of this course, in order to have a proper target for the set of tests defined, a small application based on the Spring framework is developed. The functionality of this application is specified with the own test specifications written in Gherkin language and trying to simulate a Business Driven Development approach.
+This project covers the test design and automated test implementation of a micro service based application simulating an e-commerce shop. Even though software development is not part of the focus of this course, in order to have a proper target for the set of tests defined, a small application based on the Spring framework is developed. The functionality of this application is specified through test cases written in Gherkin language and trying to simulate a Business Driven Development approach.
 For test execution, the Java implementation of the Cucumber framework has been used. At the same time, automation is achieved through a Jenkins pipeline putting more emphasis in environment administration with Docker.\ldots
 \end{abstract}
 
@@ -206,8 +206,12 @@ For test execution, the Java implementation of the Cucumber framework has been u
 
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
-\textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
+\textbf{SQA} & \textbf{S}oftware \textbf{Q}uality \textbf{A}ssurance\\
+\textbf{BDD} & \textbf{B}usiness \textbf{D}riven \textbf{D}evelopment\\
+\textbf{PoC} & \textbf{P}roof \textbf{o}f \textbf{C}oncept\\
+\textbf{UI} & \textbf{U}ser \textbf{I}nterface\\
+
+
 
 \end{abbreviations}
 
@@ -257,12 +261,12 @@ For test execution, the Java implementation of the Cucumber framework has been u
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-% TODO: new chapter: Objetivos del trabajo;
-\include{Chapters/Chapter1} %Application
-\include{Chapters/Chapter2} %Test Specification 
-\include{Chapters/Chapter3} %Test Execution Automation
-% TODO: new chapter: Descripción del trabajo realizado (estructura propia); Planificación final
-\include{Chapters/Chapter4} %Conclusions; TODO: Problemas resueltos y dificultades;
+\include{Chapters/Chapter1} %Introduction and Objectives;
+\include{Chapters/Chapter2} %Application
+\include{Chapters/Chapter3} %Test Specification 
+\include{Chapters/Chapter4} %Test Execution Automation
+\include{Chapters/Chapter5} %Descripción del trabajo realizado (estructura propia); Planificación final
+\include{Chapters/Chapter6} %Conclusions; TODO: Problemas resueltos y dificultades;
 
 
 %----------------------------------------------------------------------------------------

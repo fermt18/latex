@@ -16,8 +16,9 @@
 %----------------------------------------------------------------------------------------
 
 \section{Overview}
-TODO: any info about app design here is high level. Not in chapter 3 because the main high level goals are already pre-defined
-The application consists on 6 services simulating an e-commerce application.
+\paragraph In this chapter the application under test is described at high level and should be considered an introduction to \ref{Chapter3} where the application is described in greater detail but from the BDD point of view. As the development does not start from scratch but from a micro service Sprint demo, this chapter also describes what is already done and the improvements to be done during Project development based on BDD.
+
+\paragraph The application consists on 6 services simulating an e-commerce application. A block diagram representation of the whole system is represented in figure \ref{fig:Block Diagram}.
 
 \begin{figure}
 \centering
@@ -28,13 +29,14 @@ The application consists on 6 services simulating an e-commerce application.
 \end{figure}
 
 \paragraph The user entry point is the Web Service, from where all the functionality of the application can be accessed. For the sake of simplicity there are no roles defined within the users of the application and thus any request coming from the Web Service is processed by the application.
-The Discovery Service is not focussed on functional requirements but it tracks all the available instances of each running service.
+There is no stock data either, considering that there is an unlimited amount available of each product added to the catalog represented by the Product Service database.
+The Discovery Service is not focused on functional requirements but it tracks all the available instances of each running service.
 
 \paragraph What follows is a short description of each one of the services:
 \begin{itemize}
 \item Web Service: User entry point. Application's functionality is accessed by the user through a UI provided by this service.
 \item Account Service: Service for managing user accounts. Accounts can be created and deleted.
-\item Product Servive: Service that manages the shop product catalog. Products can be created and deleted.
+\item Product Service: Service that manages the shop product catalog. Products can be created and deleted.
 \item Cart Service: Service that manages the products within the shopping carts.
 \item Order Service: Service that manages the carts within the shopping orders.
 \item Discovery Service: Service that manages the open instances of each one of the other services.
@@ -83,9 +85,35 @@ The Accounts, Product, Cart and Order Services have each one its own data model:
 
 %----------------------------------------------------------------------------------------
 
-\section{Assumptions}
+\section{Technological Stack}
+Programming language: Java JDK v1.8
+Build tool: Apache Maven 3.3.9
+3rd party libraries:
+	Spring Framework Brixton Release
+		Spring Boot
+		Spring Cloud
+		Spring Data
+	Data Base: HyperSQL through JPA
+		
+	Test execution FW: JUnit 4.11
+	Gherkin interpreter: cucumber-java 1.1.8
+Docker Engine: 1.12.6
+Docker Compose: 1.9.0
 
-All databases start with one test entry:
+\section{Configuration}
+The application is packaged within a single JAR file with all the services and the test framework with the Cucumber libraries and the implementation of the test steps for test execution. Having developed all services in one single project and thus using one single package certainly does not follow the philosophy of using micro services as it makes This simplifies showing how the application works. Each one of the services exposes a different port
+Web Service: 				localhost:1111
+Account Service: 		localhost:2222
+Product Service: 		localhost:3333
+Order Service: 			localhost:4444
+Cart Service: 			localhost:5555
+Discovery Service: 	localhost:6666
+
+
+\section{Assumptions}
+No user roles
+No stock data
+All databases are initialized with one test entry:
 
 \begin{itemize}
 \item Account: 000000001, "TestUser", 1000

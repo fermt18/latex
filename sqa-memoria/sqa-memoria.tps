@@ -11,13 +11,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=sqa-memoria.tex
 
 [Frame0_View0,0]
-TopLine=210
+TopLine=215
 Cursor=11275
 
 [Frame1]
@@ -29,13 +29,13 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=9
+TopLine=34
 Cursor=6563
 
 [Frame2]
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter2.tex
 
 [Frame2_View0,0]
-TopLine=71
-Cursor=3447
+TopLine=86
+Cursor=4465
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter3.tex
 
 [Frame3_View0,0]
-TopLine=14
-Cursor=0
+TopLine=5
+Cursor=2089
 
 [Frame4]
 Flags=0
@@ -83,14 +83,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter4.tex
 
 [Frame4_View0,0]
 TopLine=0
-Cursor=957
+Cursor=1970
 
 [Frame5]
 Flags=0
@@ -101,8 +101,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter5.tex
 
@@ -119,8 +119,8 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1362
-NormalPos.bottom=403
+NormalPos.right=1916
+NormalPos.bottom=875
 Class=LaTeXView
 Document=Chapters\Chapter6.tex
 

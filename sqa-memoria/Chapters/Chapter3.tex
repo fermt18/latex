@@ -16,15 +16,24 @@
 %----------------------------------------------------------------------------------------
 
 \section{Overview}
-The test specification explained in this chapter serve also as a driver for the application design and development. 
-TODO: BDD applied at app design and test. Why? Why would have to do otherwise?
-TODO: application class diagram
+\paragraph The test specification explained in this chapter serve also as a driver for the application design and development. While in the previous chapter was described the data model of each one of the services that form the application, in this one the behavior of each component as well as its connections with other services are explained through a set of Gherkin based files scoped at different test levels. The intention is  to simulate a BDD process and thus the test design process is the following:
+
+\begin{enumerate}
+	\item For each test level, define a Gherkin file that describes a functionality
+	\item That file is then reviewed by the related stakeholders
+	\item The functionality that will make that test to pass is implemented
+\end{enumerate}
+
+\paragraph Of course item 2 is not happening during the implementation of this Project but is good to mention it anyway as it is quite the essence of using Gherkin language for test specification. The using of plain English files for describing how an application works should allow any stakeholder to participate openly in the way software is designed achieving greater team integration, improving communication and reducing misunderstandings to a minimum. Although its difficult to reflect the simulation of the BDD process in this document, the author will try to go through items 1 and 3 of the process in order to get an introduction as reliable as possible of an actual BDD process.
+
+\paragraph The reason behind using the process listed above is actually to compare previous test design strategies used by the author with this approach in a more complex application than the one used in the course. So the decision of using BDD instead of other strategies is just the auto imposed constraint of including it as one of the Project objectives and not the result of a comparison between different strategies.
+
 
 %----------------------------------------------------------------------------------------
 
 \section{Features}
 TODO: feature files and test levels
-
+TODO: application class diagram at the end
 
 %----------------------------------------------------------------------------------------
 

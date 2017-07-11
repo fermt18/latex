@@ -32,10 +32,92 @@
 %----------------------------------------------------------------------------------------
 
 \section{Features}
-TODO: feature files and test levels
+\paragraph From the functional point of view, there have been defined two test levels for covering the major part of the use cases for the application:
+
+\begin{itemize}
+\item Integration Level: covers test cases coming from the integration of the Web Service and each one of the other services.
+\item System Level: covers test cases that need the whole system to work. This is, use cases where data from different cases is needed.
+\end{itemize}
+
+\paragraph From the non functional point of view, only test cases regarding availability have been considered. Test cases here involve the Discovery service and its ability to manage instances of the functional services.
+
+\paragraph The following sub sections have been named after the feature file names, and in it is auto included the test type (either functional or non functional), the test level (either integration or system level), the service involved, and the test case number.
+
+\subsection{functional-it-accountservice-1}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-accountservice-1.feature}%
+\endgroup%
+
+\subsection{functional-it-accountservice-2}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-accountservice-2.feature}%
+\endgroup%
+
+\subsection{functional-it-accountservice-3}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-accountservice-3.feature}%
+\endgroup%
+
+\subsection{functional-it-productservice-1}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-productservice-1.feature}%
+\endgroup%
+
+\subsection{functional-it-orderservice-1}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-orderservice-1.feature}%
+\endgroup%
+
+\subsection{functional-it-cartservice-1}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-it-cartservice-1.feature}%
+\endgroup%
+
+\subsection{functional-st-1}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-st-1.feature}%
+\endgroup%
+
+\subsection{functional-st-2}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/functional-st-2.feature}%
+\endgroup%
+
+\subsection{nonfunctional-availability-accounts}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/nonfunctional-availability-accounts.feature}%
+\endgroup%
+
+\subsection{nonfunctional-availability-product}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/nonfunctional-availability-product.feature}%
+\endgroup%
+
+\subsection{nonfunctional-availability-cart}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/nonfunctional-availability-cart.feature}%
+\endgroup%
+
+\subsection{nonfunctional-availability-order}
+\begingroup
+\obeylines
+\input{./../../sqa-project/features/nonfunctional-availability-order.feature}%
+\endgroup%
+
+\subsection{Class Diagram}
+\paragraph After describing the application in the previous sub chapters, the main relationships between services as well as the operations that the application can do are set. The diagram in TODO:put diagram ref shows those relationships.
+
 TODO: application class diagram at the end
 
 %----------------------------------------------------------------------------------------
-
-\section{Test Framework}
-TODO: Cucumber, why?

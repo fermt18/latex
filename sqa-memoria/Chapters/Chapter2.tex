@@ -86,34 +86,40 @@ The Accounts, Product, Cart and Order Services have each one its own data model:
 %----------------------------------------------------------------------------------------
 
 \section{Technological Stack}
-Programming language: Java JDK v1.8
-Build tool: Apache Maven 3.3.9
-3rd party libraries:
-	Spring Framework Brixton Release
-		Spring Boot
-		Spring Cloud
-		Spring Data
-	Data Base: HyperSQL through JPA
-		
-	Test execution FW: JUnit 4.11
-	Gherkin interpreter: cucumber-java 1.1.8
-Docker Engine: 1.12.6
-Docker Compose: 1.9.0
+This application makes use of the following, third party, open source libraries:
+
+\begin{itemize}
+\item Programming language: Java JDK v1.8
+\item Build tool: Apache Maven 3.3.9
+\item Spring Framework Brixton Release: Spring Boot, Spring Cloud, Spring Data
+\item Data Base: HyperSQL
+\item Test execution FW: JUnit 4.11
+\item Gherkin interpreter: cucumber-java 1.1.8
+\item Docker Engine: 1.12.6
+\end{itemize}
+
 
 \section{Configuration}
 The application is packaged within a single JAR file with all the services and the test framework with the Cucumber libraries and the implementation of the test steps for test execution. Having developed all services in one single project and thus using one single package certainly does not follow the philosophy of using micro services as it makes This simplifies showing how the application works. Each one of the services exposes a different port
-Web Service: 				localhost:1111
-Account Service: 		localhost:2222
-Product Service: 		localhost:3333
-Order Service: 			localhost:4444
-Cart Service: 			localhost:5555
-Discovery Service: 	localhost:6666
+
+\begin{itemize}
+\item Web Service: 				localhost:1111
+\item Account Service: 		localhost:2222
+\item Product Service: 		localhost:3333
+\item Order Service: 			localhost:4444
+\item Cart Service: 			localhost:5555
+\item Discovery Service: 	localhost:6666
+\end{itemize}
 
 
 \section{Assumptions}
-No user roles
-No stock data
-All databases are initialized with one test entry:
+Some assumptions and restrictions have been done when programming the application mainly to ease the coding part of the application, which actually is not a topic included in the course agenda.\\
+ 
+- There are no user roles within the application. Any user can both create products and accounts as well as create carts and buy products through orders. This makes no sense from the functional point of view but eases the programming of the application.\\
+
+- No stock data is used. Offering the possibility of increase and decrease the product stocks would create some relationships between services and their databases that would have added complexity to the coding.\\
+
+- All databases are initialized with one test entry:
 
 \begin{itemize}
 \item Account: 000000001, "TestUser", 1000

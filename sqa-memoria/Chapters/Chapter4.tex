@@ -16,9 +16,10 @@
 %----------------------------------------------------------------------------------------
 
 \section{Overview}
-\paragraph This section explains each part of the Jenkins based pipeline for application building and test automation. As pipelines were an important part in the SQA course, the focus here is in the jobs that deal with test environment management and test execution. However, a simple job for building the application as well as its dependencies is also implemented.
+\paragraph This section explains each part of the Jenkins based pipeline for application building and test automation. As pipelines were an important part in the SQA course, the focus here is more in the jobs that deal with test environment management and test execution. However, a simple job for building the application as well as its dependencies is also implemented.
 
-\paragraph Main difference with the pipelines seen in the course is the use of Docker for deploying the services in the desired test environment. Through a set of configuration files located in the source control repository the services are deployed and the network for connecting each other depending on the test case is configured. The commands that trigger the deployment are executed by the Test Framework before running a set of test cases that need a specific deployment.
+\paragraph Main difference with the pipelines seen in the course is the use of Docker for deploying the services in the desired test environment. Through a set of configuration files located in the source control repository the services are deployed and the network for connecting each other depending on the test case is configured. The commands that trigger the deployment are executed by the Test Framework before running any set of test cases that need a specific deployment.
+TODO: why docker?
 
 %----------------------------------------------------------------------------------------
 

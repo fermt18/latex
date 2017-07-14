@@ -15,10 +15,39 @@
 
 %----------------------------------------------------------------------------------------
 
-TODO: docker vs docker-compose
-TODO: spring framework based services cost in HW resources
-TODO: application development should separate micro services in different projects
-TODO: knowledge/strategies acquired that are useful for professional jobs
+\section{Difficulties And Solved Problems}
+
+\subsection{Docker}
+\paragraph The use of Docker has been a challenge since the very beginning as it was never used by the author before. There was an initial  knowledge gathering period before deciding which ones of the three main tools released under the Docker umbrella (Docker Engine, Compose and Swarm) needed to be used to meet the project requirements.
+
+\paragraph The initial approach was to use Docker Engine for creating containers from each one of the services and afterward to use Compose for deploying sets of services with one single command. This is particularly useful for deploying complex integration environments with several services and specific network configurations. However, the application built was so simple that using Compose would have made things more complex than what actually are. Moreover, the development environment configured for developing the application consists on one single project and thus one single executable file making impossible to create different container images and so a coherent Compose file. For these reasons the final approach consists only on using Engine for creating containers of the services and running them with the commands provided by Engine.
+
+\paragraph As Docker is a native application for Linux systems, it was used a Linux based laptop for investigating about Docker and its flavors as well as for the initial application development. However, this machine quickly went out of hardware resources when running the six services of the application, the test execution and the Jenkins machine at the same time. For this reason, the author had to change to a laptop with increased resources but based on Windows 7. The drawback of this is that Docker will not run directly on Windows systems below version 10 and thus a solution based on Linux virtual machines shall be used instead in order to overcome this problem but at the same time this created more problems due to the certificate paths for SSH connections already set up in that machine.
+At the end some workarounds were applied and the system was able to work but leaving clear that the native versions of Docker should be used for productive environments. 
+
+
+\subsection{Spring Framework}
+
+\paragraph Using Spring development framework for the application was actually a try for using the need of having to develop something for learning a new technology used widely these days. As the Accounts service was half developed as the content of a Spring-based demo, the idea was to keep expanding the application with the other services using Spring taking as a reference code written in the demo. This soon showed up as a bad idea from the timing perspective as learning the basics of Spring took more time than expected and do not provide any additional functionality that could not be implemented with traditional server-client libraries.
+
+\paragraph Another unexpected drawback of using Spring is the amount of resources that consumes for one single service. While this is the price to pay for being so simple to code, it provided no benefit due to the limited scope of the application.
+
+
+\subsection{Cucumber}
+
+\paragraph While writing test steps for the Gherkin files is relatively easy, the challenge comes when several different test targets need more or less the same test functionality and thus a way of generalizing steps has to be found. In this case this generalization is done in the form of one class per service acting as a client extending a base client class with shared methods and abstract classes that creates the requests to be sent to the system. Then, in the step, only one line calls to these clients are written easing this way the maintenance of the test step library by reducing to a minimum the source code. When this is done, adding new feature files becomes a straightforward activity.
+
+\paragraph Conclusion here would be that in order to assure a controlled growing of the test step library, is better to use more test steps  with less logic inside rather than less in number but bigger test steps. While is true that the test step library becomes larger this way, it could be easily sorted (i.e. alphabetically) and reviewed.
+
+\paragraph As soon as the test developer starts increasing the functionality done by the classes in the background, some usual coding issues appear and thus is important to apply coding conventions here as well. More relevant example due to the testing focus of the code (test steps in this case) being developed is exception handling. By default, any test step will throw "`Throwable"' super class which essentially means that any Error or Exception raised by the code will be considered an actual error and the step will exit with error code 1. While this approach is fine from the test run point of view, the developer should make sure that the background test classes and the source code under test handle exceptions properly so the output of the test step can provide useful information about the error.
+ 
+
+\section{Conclusions}
+
+\paragraph The implementation of the solution proposed in this document did not happen without unexpected issues and problems of several kinds. However, the author finds the experience enriching in the sense that the project objectives accomplished indeed provided knowledge and an overall idea of the technologies used for the solution which in fact was the main objective in the background.
+
+\paragraph Having to overcome different problems is also part of the experience although viewed in retrospective some project objectives like using Spring could have been skipped as it did not provide additional value to the project and made the application development harder than the strictly necessary being a subject not included in the course agenda. 
+
 
 
 

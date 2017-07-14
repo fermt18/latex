@@ -115,9 +115,82 @@
 \input{./../../sqa-project/features/nonfunctional-availability-order.feature}%
 \endgroup%
 
-\subsection{Class Diagram}
-\paragraph After describing the application in the previous sub chapters, the main relationships between services as well as the operations that the application can do are set. The diagram in TODO:put diagram ref shows those relationships.
+\section{Class Diagram}
+\paragraph After describing the application requirements in the previous sub chapters, the main relationships and dependencies between services are set. The diagram \ref{fig:Class Diagram} shows those dependencies.
 
-TODO: application class diagram at the end
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/ClassDiagram.png}
+\decoRule
+\caption[Class Diagram]{Application class diagram}
+\label{fig:Class Diagram}
+\end{figure}
 
-%----------------------------------------------------------------------------------------
+\paragraph So at the end the feature files define requirements for both a service provider and a service consumer and that those services shall be independent between each other. In \ref{fig:Class Diagram} the four service packages are found at the top of the diagram (the right most package correspond to the Exceptions classes used by the services) which are Accounts service, Product service, Cart service and Order service. Here is where the data model and the provider REST API is configured. Registration service is configured within Spring and so no need a package here. Each one of these service classes has then a connection to the the server classes below, used for triggering each service and for exposing its REST API. The right most server package host the server class for the Registration service. 
+
+\paragraph Below the server packages for the functional services, there is the Web server package where a consumer REST API for each one of the services is configured and exposed. Finally, the lonely class a the center right of the diagram is the Main class that will call one of the server classes depending on the incoming arguments ([accounts | product | cart | order | web | registration]).
+
+%-----------------------------------------------------------------------------------------------------------------
+
+\section{REST API}
+
+The features described before define some requests to the services that are fulfilled with the following REST API.
+
+\subsection{Producer API}
+
+\subsubsection{Accounts}
+\begin{itemize}
+	\item \textit{/accounts/{number}}: search for an account by its account number.
+	\item \textit{/accounts/owner/{name}}: search for an account by its account owner name.
+	\item \textit{/accounts/save/{account}}: saves a new account.
+	\item \textit{/accounts/delete/{account}}: deletes an existing account.
+\end{itemize}
+
+\subsubsection{Products}
+\begin{itemize}
+	\item \textit{/products/{reference}}: search for a product by its product reference.
+	\item \textit{/products/description/{description}}: search for a product by its product description.
+	\item \textit{/products/save/{product}}: saves a new product.
+	\item \textit{/products/delete/{product}}: deletes an existing product.
+\end{itemize}
+
+\subsubsection{Carts}
+\begin{itemize}
+	\item \textit{/carts/{account}}: search for a cart by its associated account number.
+	\item \textit{/carts/name/{name}}: search for a cart by its name.
+	\item \textit{/carts/save/{cart}}: saves a new cart.
+	\item \textit{/carts/delete/{cart}}: deletes an existing cart.
+\end{itemize}
+
+\subsubsection{Orders}
+\begin{itemize}
+	\item \textit{/orders/{name}}: search for an order by its order name.
+	\item \textit{/orders/save/{order}}: saves a new order.
+	\item \textit{/orders/delete/{order}}: deletes an existing order.
+\end{itemize}
+
+
+\subsection{Consumer API}
+
+\subsubsection{Web}
+Its API is just a mapping to the services consumer API defined below.
+
+\subsubsection{Accounts}
+Its API is just a mapping to the Accounts provider API defined above.
+
+\subsubsection{Products}
+Its API is just a mapping to the Products provider API defined above.
+
+\subsubsection{Carts}
+Its API is just a mapping to the Carts provider API defined above.
+
+\subsubsection{Orders}
+Its API is just a mapping to the Orders provider API defined above.
+
+\subsubsection{Registration}
+As this service is based in the Eureka project, its API is specified in the corresponding official documentation: 
+\hyperref[]{\textcolor[rgb]{0,0,1}{https://github.com/Netflix/eureka/wiki/Eureka-REST-operations}}
+Registration service API is not required directly by the features defined in this chapter but is used by the test steps that check connectivity with the Web server and by the ones that verify the availability requirements.
+
+
+%-----------------------------------------------------------------------------------------------------------------

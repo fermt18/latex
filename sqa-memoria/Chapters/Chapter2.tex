@@ -111,11 +111,17 @@ The application is packaged within a single JAR file with all the services and t
 \item Discovery Service: 	localhost:6666
 \end{itemize}
 
+All services are accessed thorugh one single Main class that will trigger one or other service depending on the arguments passed. So, the usage of the generated JAR file is the following:
+
+\begin{itemize}
+	\item java -jar sqa-project.jar [service]; where service is [accounts|products|carts|orders|web|registration]
+\end{itemize}
+
 
 \section{Assumptions}
 Some assumptions and restrictions have been done when programming the application mainly to ease the coding part of the application, which actually is not a topic included in the course agenda.\\
  
-- There are no user roles within the application. Any user can both create products and accounts as well as create carts and buy products through orders. This makes no sense from the functional point of view but eases the programming of the application.\\
+- There are no user roles within the application. Any user can both create products and accounts as well as create carts and buy products through orders. This might make no sense from the functional point of view but eases the programming of the application.\\
 
 - No stock data is used. Offering the possibility of increase and decrease the product stocks would create some relationships between services and their databases that would have added complexity to the coding.\\
 

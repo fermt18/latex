@@ -21,12 +21,12 @@
 \begin{enumerate}
 	\item For each test level, define a Gherkin file that describes a functionality
 	\item That file is then reviewed by the related stakeholders
-	\item The functionality that will make that test to pass is implemented
+	\item The functionality that will make that test set to pass is implemented
 \end{enumerate}
 
 \paragraph Of course item 2 is not happening during the implementation of this Project but is good to mention it anyway as it is quite the essence of using Gherkin language for test specification. The using of plain English files for describing how an application works should allow any stakeholder to participate openly in the way software is designed achieving greater team integration, improving communication and reducing misunderstandings to a minimum. Although its difficult to reflect the simulation of the BDD process in this document, the author will try to go through items 1 and 3 of the process in order to get an introduction as reliable as possible of an actual BDD process.
 
-\paragraph The reason behind using the process listed above is actually to compare previous test design strategies used by the author with this approach in a more complex application than the one used in the course. So the decision of using BDD instead of other strategies is just the auto imposed constraint of including it as one of the Project objectives and not the result of a comparison between different strategies.
+%\paragraph The reason behind using the process listed above is actually to compare previous test design strategies used by the author with this approach in a more complex application than the one used in the course. So the decision of using BDD instead of other strategies is just the auto imposed constraint of including it as one of the Project objectives and not the result of a comparison between different strategies.
 
 
 %----------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
 
 \begin{itemize}
 \item Integration Level: covers test cases coming from the integration of the Web Service and each one of the other services.
-\item System Level: covers test cases that need the whole system to work. This is, use cases where data from different cases is needed.
+\item System Level: covers test cases that need the whole system to work. This is, use cases where interaction with different services is needed.
 \end{itemize}
 
 \paragraph From the non functional point of view, only test cases regarding availability have been considered. Test cases here involve the Discovery service and its ability to manage instances of the functional services.
@@ -44,6 +44,7 @@
 \paragraph The following sub sections have been named after the feature file names, and in it is auto included the test type (either functional or non functional), the test level (either integration or system level), the service involved, and the test case number.
 
 \subsection{functional-it-accountservice-1}
+\ttfamily
 \begingroup
 \obeylines
 \input{./../../sqa-project/features/functional-it-accountservice-1.feature}%
@@ -114,6 +115,7 @@
 \obeylines
 \input{./../../sqa-project/features/nonfunctional-availability-order.feature}%
 \endgroup%
+\normalfont
 
 \section{Class Diagram}
 \paragraph After describing the application requirements in the previous sub chapters, the main relationships and dependencies between services are set. The diagram \ref{fig:Class Diagram} shows those dependencies.

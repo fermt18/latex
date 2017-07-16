@@ -120,13 +120,19 @@
 \section{Class Diagram}
 \paragraph After describing the application requirements in the previous sub chapters, the main relationships and dependencies between services are set. The diagram \ref{fig:Class Diagram} shows those dependencies.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/ClassDiagram.png}
-\decoRule
-\caption[Class Diagram]{Application class diagram}
-\label{fig:Class Diagram}
-\end{figure}
+%\begin{figure}[!htb]
+%\centering
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/ClassDiagram.png}
+%\decoRule
+%\caption[Class Diagram]{Application class diagram}
+%\label{fig:Class Diagram}
+%\end{figure}
+\begin{sidewaysfigure}[ht]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{Figures/ClassDiagram.png}
+    \caption{Application class diagram}
+    \label{fig:Class Diagram}
+\end{sidewaysfigure}
+
 
 \paragraph So at the end the feature files define requirements for both a service provider and a service consumer and that those services shall be independent between each other. In \ref{fig:Class Diagram} the four service packages are found at the top of the diagram (the right most package correspond to the Exceptions classes used by the services) which are Accounts service, Product service, Cart service and Order service. Here is where the data model and the provider REST API is configured. Registration service is configured within Spring and so no need a package here. Each one of these service classes has then a connection to the the server classes below, used for triggering each service and for exposing its REST API. The right most server package host the server class for the Registration service. 
 
@@ -136,7 +142,7 @@
 
 \section{REST API}
 
-The features described before define some requests to the services that are fulfilled with the following REST API.
+\paragraph The features described before define some requests to the services that are fulfilled with the following REST API.
 
 \subsection{Producer API}
 

@@ -119,17 +119,19 @@ All services are accessed thorugh one single Main class that will trigger one or
 
 
 \section{Assumptions}
-Some assumptions and restrictions have been done when programming the application mainly to ease the coding part of the application, which actually is not a topic included in the course agenda.\\
+\paragraph Some assumptions and restrictions have been done when programming the application mainly to ease the coding part of the application, which actually is not a topic included in the course agenda.\\
  
-- There are no user roles within the application. Any user can both create products and accounts as well as create carts and buy products through orders. This might make no sense from the functional point of view but eases the programming of the application.\\
+\begin{itemize}
+\item There are no user roles within the application. Any user can both create products and accounts as well as create carts and buy products through orders. This might make no sense from the functional point of view but eases the programming of the application.\\
 
-- No stock data is used. Offering the possibility of increase and decrease the product stocks would create some relationships between services and their databases that would have added complexity to the coding.\\
+\item No stock data is used. Offering the possibility of increase and decrease the product stocks would create some relationships between services and their databases that would have added complexity to the coding.\\
 
-- All databases are initialized with one test entry:
+\item All databases are initialized with one test entry:
 
 \begin{itemize}
 \item Account: 000000001, "TestUser", 1000
 \item Product: ref001, "10", "Simple mouse"
 \item Cart: C001, 000000001, ref001
 \item Order: O001, C001
+\end{itemize}
 \end{itemize}
